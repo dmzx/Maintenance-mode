@@ -1,0 +1,47 @@
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3vh;
+    color: #231f20;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1, h3 {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    padding: 10px 14px;
+}
+
+h3, .timer {
+    margin: 0;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.notice {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 50px;
+}
+
+.timer {
+    background-color: #231f20;
+    color: #fff;
+    text-align: center;
+    font-size: 2.5vh;
+    font-family: 'Consolas';
+    padding: 10px 14px;
+}

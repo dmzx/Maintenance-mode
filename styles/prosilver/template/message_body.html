@@ -1,0 +1,30 @@
+{% if S_MAINTENANCE %}
+{% INCLUDE 'simple_header.html' %}
+
+<div class="countdown">
+	<div class="timer">
+		{MAINTENANCE_SITENAME}
+	</div>
+</div>
+<div class="main-content">
+	<div class="notice">
+		<h2>{MESSAGE_TEXT}</h2>
+		{% if S_MAINTENANCE_TIMER %}
+		<h3>{L_MAINTENANCE_TIMEIN}</h3>
+		<div class="countdown">
+			<p class="timer">
+				<span id="days"></span> <span class="smalltext" id="days_title"></span>
+				<span id="hours"></span> <span class="smalltext" id="hours_title"></span>
+				<span id="minutes"></span> <span class="smalltext" id="mins_title"></span>
+				<span id="seconds"></span> <span class="smalltext" id="secs_title"></span>
+			</p>
+		</div>
+		{% endif %}
+		<h3>{MAINTENANCE_TEXT}</h3>
+		<h3>{L_MAINTENANCE_TEXT_APOLOGIZE}</h3>
+	</div>
+</div>
+
+{% INCLUDE 'simple_footer.html' %}
+{% endif %}
+

@@ -1,0 +1,10 @@
+services:
+    dmzx.maintenance.listener:
+        class: dmzx\maintenance\event\listener
+        arguments:
+            - '@user'
+            - '@config'
+            - '@auth'
+            - '@template'
+        tags:
+            - { name: event.listener }

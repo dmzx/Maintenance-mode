@@ -1,0 +1,73 @@
+function countdown(endDate) {
+	let timer, days, hours, minutes, seconds;
+
+	endDate = new Date(endDate).getTime();
+
+	if (isNaN(endDate)) {
+		return;
+	}
+
+	imer = setInterval(calculate, 1000);
+
+	function calculate() {
+		let startDate = new Date();
+
+		startDate = new Date(startDate.getUTCFullYear(),
+		startDate.getUTCMonth(),
+		startDate.getUTCDate(),
+		startDate.getUTCHours(),
+		startDate.getUTCMinutes(),
+		startDate.getUTCSeconds());
+
+		let timeRemaining = parseInt((endDate - startDate.getTime()) / 1000);
+
+		if (timeRemaining >= 0) {
+			days			= parseInt(timeRemaining / 86400);
+			timeRemaining	= (timeRemaining % 86400);
+
+			hours			= parseInt(timeRemaining / 3600);
+			timeRemaining	= (timeRemaining % 3600);
+
+			minutes		 = parseInt(timeRemaining / 60);
+			timeRemaining	= (timeRemaining % 60);
+
+			seconds		 = parseInt(timeRemaining);
+
+			if (days === 1) {
+				document.getElementById("days_title").innerHTML = Maintenance.lang.day;
+			} else {
+				document.getElementById("days_title").innerHTML = Maintenance.lang.days;
+			}
+
+			if (hours === 1) {
+				document.getElementById("hours_title").innerHTML = Maintenance.lang.Hour;
+			} else {
+				document.getElementById("hours_title").innerHTML = Maintenance.lang.Hours;
+			}
+
+			if (minutes === 1) {
+				document.getElementById("mins_title").innerHTML = Maintenance.lang.Minute;
+			} else {
+				document.getElementById("mins_title").innerHTML = Maintenance.lang.Minutes;
+			}
+
+			if (seconds === 1) {
+				document.getElementById("secs_title").innerHTML = Maintenance.lang.Second;
+			} else {
+				document.getElementById("secs_title").innerHTML = Maintenance.lang.Seconds;
+			}
+
+			document.getElementById("days").innerHTML	= parseInt(days, 10);
+			document.getElementById("hours").innerHTML	= ("0" + hours).slice(-2);
+			document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2);
+			document.getElementById("seconds").innerHTML = ("0" + seconds).slice(-2);
+
+		} else {
+			return;
+		}
+	}
+}
+
+(function () {
+	countdown(Maintenance.time);
+}());
