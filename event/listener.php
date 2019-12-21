@@ -142,7 +142,7 @@ class listener implements EventSubscriberInterface
 			'S_MAINTENANCE' 		=> $this->config['dmzx_maintenance_enable'],
 			'MAINTENANCE_TEXT'		=> $this->user->lang('MAINTENANCE_TEXT', $this->config['sitename']),
 			'MAINTENANCE_SITENAME'	=> $this->config['sitename'],
-			'S_MAINTENANCE_TIMER'		=> $this->config['dmzx_maintenance_timer'],
+			'S_MAINTENANCE_TIMER'	=> $this->config['dmzx_maintenance_timer'],
 			'MAINTENANCE_TIME'		=> $this->config['dmzx_maintenance_time'],
 			'MAINTENANCE_IMAGE'		=> $background_img,
 		]);

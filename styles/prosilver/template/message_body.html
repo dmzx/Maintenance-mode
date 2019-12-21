@@ -1,16 +1,26 @@
 {% if S_MAINTENANCE %}
 {% INCLUDE 'simple_header.html' %}
 
+<div class="right">
+	<ul class="contents">
+		<li>
+			<a href="{{ U_LOGIN_LOGOUT }}" title="{{ lang('LOGIN_LOGOUT') }}" accesskey="x">
+			<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>{{ lang('LOGIN_LOGOUT') }}</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
 <div class="countdown">
 	<div class="timer">
-		{MAINTENANCE_SITENAME}
+		{{ MAINTENANCE_SITENAME }}
 	</div>
 </div>
 <div class="main-content">
 	<div class="notice">
-		<h2>{MESSAGE_TEXT}</h2>
+		<h2>{{ MAINTENANCE_SITENAME }} {{ MESSAGE_TEXT }}</h2>
 		{% if S_MAINTENANCE_TIMER %}
-		<h3>{L_MAINTENANCE_TIMEIN}</h3>
+		<h3>{{ lang('MAINTENANCE_TIMEIN') }}</h3>
 		<div class="countdown">
 			<p class="timer">
 				<span id="days"></span> <span class="smalltext" id="days_title"></span>
@@ -20,11 +30,10 @@
 			</p>
 		</div>
 		{% endif %}
-		<h3>{MAINTENANCE_TEXT}</h3>
-		<h3>{L_MAINTENANCE_TEXT_APOLOGIZE}</h3>
+		<h3>{{ MAINTENANCE_TEXT }}</h3>
+		<h3>{{ lang('MAINTENANCE_TEXT_APOLOGIZE') }}</h3>
 	</div>
 </div>
 
 {% INCLUDE 'simple_footer.html' %}
 {% endif %}
-

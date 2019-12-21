@@ -11,21 +11,20 @@ namespace dmzx\maintenance\migrations;
 
 use phpbb\db\migration\migration;
 
-class maintenance_install extends migration
+class maintenance_v101 extends migration
 {
+
 	static public function depends_on()
 	{
-		return ['\phpbb\db\migration\data\v320\v320'];
+		return [
+			'\dmzx\maintenance\migrations\maintenance_install',
+		];
 	}
 
 	public function update_data()
 	{
 		return [
-			['config.add', ['dmzx_maintenance_text', 'will be back soon.']],
-			['config.add', ['dmzx_maintenance_enable', 0]],
-			['config.add', ['dmzx_maintenance_timer', 0]],
-			['config.add', ['dmzx_maintenance_time', '']],
-			['config.add', ['dmzx_maintenance_image', '']],
+			['config.add', ['maintenance_version', '1.0.1']],
 		];
 	}
 }
