@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
 	"description": "This extension maintenance mode page.",
 	"homepage": "https://www.dmzx-web.net",
-	"version": "1.0.1",
-	"time": "2019-12-21",
+	"version": "1.0.2",
+	"time": "2020-01-14",
 	"keywords": [
 		"phpbb",
 		"extension",

@@ -18,7 +18,6 @@ use phpbb\template\template;
 
 class listener implements EventSubscriberInterface
 {
-
 	/** @var user */
 	protected $user;
 
@@ -31,6 +30,15 @@ class listener implements EventSubscriberInterface
 	/** @var template */
 	protected $template;
 
+	/** @var string */
+	protected $phpbb_admin_path;
+
+	/** @var string */
+	protected $root_path;
+
+	/** @var string */
+	protected $php_ext;
+
 	/**
 	* Constructor
 	*
@@ -38,19 +46,29 @@ class listener implements EventSubscriberInterface
 	* @param config				$config
 	* @param auth				$auth
 	* @param template			$template
+	* @param string			 $adm_relative_pat
+	* @param string				$root_path
+	* @param string				$php_ext
 	*
 	*/
 	public function __construct(
 		user $user,
 		config $config,
 		auth $auth,
-		template $template
+		template $template,
+		$adm_relative_path,
+		$root_path,
+		$php_ext
 	)
 	{
 		$this->user 				= $user;
 		$this->config 				= $config;
 		$this->auth 				= $auth;
 		$this->template 			= $template;
+		$this->adm_relative_path 	= $adm_relative_path;
+		$this->phpbb_admin_path 	= $root_path . $adm_relative_path;
+		$this->root_path 			= $root_path;
+		$this->php_ext 				= $php_ext;
 	}
 
 	static public function getSubscribedEvents()
@@ -85,27 +103,8 @@ class listener implements EventSubscriberInterface
 			'configs'	=> [
 				'dmzx_maintenance_enable' => [
 					'lang' 		=> 'MAINTENANCE_ENABLE',
-					'type'		=> 'radio:yes_no',
-					'explain'	=> true,
-				],
-				'dmzx_maintenance_text' => [
-					'lang' 		=> 'MAINTENANCE_TEXT',
-					'type'		=> 'textarea:5:30',
-					'explain'	=> true,
-				],
-				'dmzx_maintenance_timer' => [
-					'lang' 		=> 'MAINTENANCE_TIMER',
-					'type'		=> 'radio:yes_no',
-					'explain'	=> true,
-				],
-				'dmzx_maintenance_time' => [
-					'lang' 		=> 'MAINTENANCE_TIME',
-					'type'		=> 'text:40:255',
-					'explain'	=> true,
-				],
-				'dmzx_maintenance_image' => [
-					'lang' 		=> 'MAINTENANCE_BACKGROUND_IMAGE',
-					'type'		=> 'text:60:255',
+					'type'		=> 'custom',
+					'function'	=> array($this, 'dmzx_maintenance_enable'),
 					'explain'	=> true,
 				],
 			],
@@ -147,9 +146,40 @@ class listener implements EventSubscriberInterface
 			'MAINTENANCE_IMAGE'		=> $background_img,
 		]);
 
+		if ($this->config['dmzx_maintenance_enable'])
+		{
+			$this->user->add_lang_ext('dmzx/maintenance', 'maintenance_social');
+
+			$this->template->assign_vars([
+				'S_MAINTENANCE_SOCIAL' 				=> $this->config['dmzx_maintenance_enable_social'],
+				'S_MAINTENANCE_SOCIAL_FACEBOOK' 	=> $this->config['dmzx_maintenance_enable_facebook'],
+				'MAINTENANCE_FACEBOOK_URL' 			=> $this->config['dmzx_maintenance_facebook_url'],
+				'S_MAINTENANCE_SOCIAL_TWITTER' 		=> $this->config['dmzx_maintenance_enable_twitter'],
+				'MAINTENANCE_TWITTER_URL' 			=> $this->config['dmzx_maintenance_twitter_url'],
+				'S_MAINTENANCE_SOCIAL_RSS' 			=> $this->config['dmzx_maintenance_enable_rss'],
+				'MAINTENANCE_RSS_URL' 				=> $this->config['dmzx_maintenance_rss_url'],
+				'S_MAINTENANCE_SOCIAL_YOUTUBE' 		=> $this->config['dmzx_maintenance_enable_youtube'],
+				'MAINTENANCE_YOUTUBE_URL' 			=> $this->config['dmzx_maintenance_youtube_url'],
+				'S_MAINTENANCE_SOCIAL_LINKEDIN' 	=> $this->config['dmzx_maintenance_enable_linkedin'],
+				'MAINTENANCE_LINKEDIN_URL' 			=> $this->config['dmzx_maintenance_linkedin_url'],
+				'S_MAINTENANCE_SOCIAL_GITHUB' 		=> $this->config['dmzx_maintenance_enable_github'],
+				'MAINTENANCE_GITHUB_URL' 			=> $this->config['dmzx_maintenance_github_url'],
+				'S_MAINTENANCE_SOCIAL_EMAIL' 		=> $this->config['dmzx_maintenance_enable_email'],
+				'MAINTENANCE_EMAIL' 				=> $this->config['dmzx_maintenance_email'],
+			]);
+		}
+
 		define('IN_CRON', true);
 		page_footer();
 
 		exit_handler();
+	}
+
+	function dmzx_maintenance_enable($value, $key)
+	{
+		$go_settings = append_sid($this->phpbb_admin_path . 'index.' . $this->php_ext, 'i=-dmzx-maintenance-acp-maintenance_module&amp;mode=config', true);
+
+		$radio_ary = array(1 => 'YES', 0 => 'NO');
+		return h_radio('config[dmzx_maintenance_enable]', $radio_ary, $value) . '<a href="' . $go_settings . '" >'. $this->user->lang('ACP_MAINTENANCE_SETTINGS') . '</a>';
 	}
 }

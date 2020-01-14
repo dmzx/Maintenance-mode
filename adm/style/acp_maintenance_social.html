@@ -1,0 +1,115 @@
+<fieldset class="dmzx_maintenance_social_toggle"{% if MAINTENANCE_SOCIAL %} style="display: none;"{% endif %}>
+	<legend>{{ lang('MAINTENANCE_SETTINGS_SOCIAL') }}</legend>
+	<dl>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_FACEBOOK') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_FACEBOOK_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input type="checkbox" class="js-switch" id="dmzx_maintenance_enable_facebook" name="dmzx_maintenance_enable_facebook" value="1"{% if MAINTENANCE_SOCIAL_FACEBOOK %} checked="checked"{% endif %} /></label>
+		</dd>
+	</dl>
+	<dl class="dmzx_maintenance_facebook_toggle"{% if MAINTENANCE_SOCIAL_FACEBOOK %} style="display: none;"{% endif %}>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_FACEBOOK_URL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_FACEBOOK_URL_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input name="dmzx_maintenance_facebook_url" type="url" id="dmzx_maintenance_facebook_url" size="60" value="{{ MAINTENANCE_FACEBOOK_URL }}" /></label>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_TWITTER') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_TWITTER_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input type="checkbox" class="js-switch" id="dmzx_maintenance_enable_twitter" name="dmzx_maintenance_enable_twitter" value="1"{% if MAINTENANCE_SOCIAL_TWITTER %} checked="checked"{% endif %} /></label>
+		</dd>
+	</dl>
+	<dl class="dmzx_maintenance_twitter_toggle"{% if MAINTENANCE_SOCIAL_TWITTER %} style="display: none;"{% endif %}>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_TWITTER_URL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_TWITTER_URL_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input name="dmzx_maintenance_twitter_url" type="url" id="dmzx_maintenance_twitter_url" size="60" value="{{ MAINTENANCE_TWITTER_URL }}" /></label>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_RSS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_RSS_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input type="checkbox" class="js-switch" id="dmzx_maintenance_enable_rss" name="dmzx_maintenance_enable_rss" value="1"{% if MAINTENANCE_SOCIAL_RSS %} checked="checked"{% endif %} /></label>
+		</dd>
+	</dl>
+	<dl class="dmzx_maintenance_rss_toggle"{% if MAINTENANCE_SOCIAL_RSS %} style="display: none;"{% endif %}>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_RSS_URL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_RSS_URL_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input name="dmzx_maintenance_rss_url" type="url" id="dmzx_maintenance_rss_url" size="60" value="{{ MAINTENANCE_RSS_URL }}" /></label>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_YOUTUBE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_YOUTUBE_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input type="checkbox" class="js-switch" id="dmzx_maintenance_enable_youtube" name="dmzx_maintenance_enable_youtube" value="1"{% if MAINTENANCE_SOCIAL_YOUTUBE %} checked="checked"{% endif %} /></label>
+		</dd>
+	</dl>
+	<dl class="dmzx_maintenance_youtube_toggle"{% if MAINTENANCE_SOCIAL_YOUTUBE %} style="display: none;"{% endif %}>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_YOUTUBE_URL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_YOUTUBE_URL_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input name="dmzx_maintenance_youtube_url" type="url" id="dmzx_maintenance_youtube_url" size="60" value="{{ MAINTENANCE_YOUTUBE_URL }}" /></label>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_LINKEDIN') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_LINKEDIN_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input type="checkbox" class="js-switch" id="dmzx_maintenance_enable_linkedin" name="dmzx_maintenance_enable_linkedin" value="1"{% if MAINTENANCE_SOCIAL_LINKEDIN %} checked="checked"{% endif %} /></label>
+		</dd>
+	</dl>
+	<dl class="dmzx_maintenance_linkedin_toggle"{% if MAINTENANCE_SOCIAL_LINKEDIN %} style="display: none;"{% endif %}>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_LINKEDIN_URL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_LINKEDIN_URL_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input name="dmzx_maintenance_linkedin_url" type="url" id="dmzx_maintenance_linkedin_url" size="60" value="{{ MAINTENANCE_LINKEDIN_URL }}" /></label>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_GITHUB') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_GITHUB_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input type="checkbox" class="js-switch" id="dmzx_maintenance_enable_github" name="dmzx_maintenance_enable_github" value="1"{% if MAINTENANCE_SOCIAL_GITHUB %} checked="checked"{% endif %} /></label>
+		</dd>
+	</dl>
+	<dl class="dmzx_maintenance_github_toggle"{% if MAINTENANCE_SOCIAL_GITHUB %} style="display: none;"{% endif %}>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_GITHUB_URL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_GITHUB_URL_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input name="dmzx_maintenance_github_url" type="url" id="dmzx_maintenance_github_url" size="60" value="{{ MAINTENANCE_GITHUB_URL }}" /></label>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_EMAIL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_EMAIL_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input type="checkbox" class="js-switch" id="dmzx_maintenance_enable_email" name="dmzx_maintenance_enable_email" value="1"{% if MAINTENANCE_SOCIAL_EMAIL %} checked="checked"{% endif %} /></label>
+		</dd>
+	</dl>
+	<dl class="dmzx_maintenance_email_toggle"{% if MAINTENANCE_SOCIAL_EMAIL %} style="display: none;"{% endif %}>
+		<dt>
+			<label>{{ lang('MAINTENANCE_SOCIAL_EMAIL_ADRESS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_EMAIL_ADRESS_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<label><input name="dmzx_maintenance_email" type="email" id="dmzx_maintenance_email" size="60" value="{{ MAINTENANCE_EMAIL }}" /></label>
+		</dd>
+	</dl>
+</fieldset>

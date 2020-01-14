@@ -1,0 +1,66 @@
+{% INCLUDE 'overall_header.html' %}
+
+<h1>{{ lang('ACP_MAINTENANCE') }}</h1>
+
+<p><img src="https://img.shields.io/badge/{{ lang('MAINTENANCE_VERSION') }}-{{ MAINTENANCE_VERSION }}-green.svg?style=plastic" /></p>
+
+{% if S_MAINTENANCE %}
+
+{% INCLUDEJS '@dmzx_maintenance/js/maintenance.js' %}
+{% INCLUDECSS '@dmzx_maintenance/css/switchery.css' %}
+{% INCLUDEJS '@dmzx_maintenance/js/switchery.js' %}
+
+<form id="acp_maintenance" method="post" action="{{ U_ACTION }}">
+	<fieldset>
+		<legend>{{ lang('ACP_MAINTENANCE_SETTINGS') }}</legend>
+		<dl>
+			<dt><label for="dmzx_maintenance_text">{{ lang('MAINTENANCE_TEXT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_TEXT_EXPLAIN') }}</span></dt>
+			<dd><textarea id="dmzx_maintenance_text" tabindex="4" name="dmzx_maintenance_text" cols="60" rows="4" >{{ MAINTENANCE_TEXT }}</textarea></dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('MAINTENANCE_TIMER') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_TIMER_EXPLAIN') }}</span>
+			</dt>
+			<dd>
+				<label><input type="checkbox" class="js-switch" id="dmzx_maintenance_timer" name="dmzx_maintenance_timer" value="1"{% if MAINTENANCE_TIMER %} checked="checked"{% endif %} /></label>
+			</dd>
+		</dl>
+		<dl class="dmzx_maintenance_timer_toggle"{% if MAINTENANCE_TIMER %} style="display: none;"{% endif %}>
+			<dt>
+				<label>{{ lang('MAINTENANCE_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_TIME_EXPLAIN') }}</span>
+			</dt>
+			<dd>
+				<input name="dmzx_maintenance_time" type="text" id="dmzx_maintenance_time" size="30" maxlength="30" value="{{ MAINTENANCE_TIME }}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('MAINTENANCE_BACKGROUND_IMAGE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_BACKGROUND_IMAGE_EXPLAIN') }}</span>
+			</dt>
+			<dd>
+				<input name="dmzx_maintenance_image" type="url" id="dmzx_maintenance_image" size="60" value="{{ MAINTENANCE_BACKGROUND_IMAGE }}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('MAINTENANCE_SOCIAL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('MAINTENANCE_SOCIAL_EXPLAIN') }}</span>
+			</dt>
+			<dd>
+				<label><input type="checkbox" class="js-switch" id="dmzx_maintenance_enable_social" name="dmzx_maintenance_enable_social" value="1"{% if MAINTENANCE_SOCIAL %} checked="checked"{% endif %} /></label>
+			</dd>
+		</dl>
+	</fieldset>
+	{% INCLUDE '@dmzx_maintenance/acp_maintenance_social.html' %}
+	<fieldset>
+		<p class="submit-buttons">
+			<input type="hidden" name="action" value="save" />
+			<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+			{{ S_FORM_TOKEN }}
+		</p>
+	</fieldset>
+</form>
+{% else %}
+<div class="successbox notice">{{ MAINTENANCE_SETTINGS_EXPLAIN }}</div>
+{% endif %}
+{% INCLUDE 'overall_footer.html' %}

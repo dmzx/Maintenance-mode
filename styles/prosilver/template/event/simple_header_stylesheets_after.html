@@ -1,5 +1,8 @@
 {% if S_MAINTENANCE %}
 {% INCLUDECSS '@dmzx_maintenance/maintenance.css' %}
+{% if S_MAINTENANCE_SOCIAL %}
+{% INCLUDECSS '@dmzx_maintenance/maintenance_social.css' %}
+{% endif %}
 <style>
 body {
 	background-image: url("{{ MAINTENANCE_IMAGE }}");

@@ -33,10 +33,11 @@ if (empty($lang) || !is_array($lang))
 // ’ » “ ” …
 
 $lang = array_merge($lang, [
-	'MAINTENANCE_ENABLE'						=> 'Enable Maintenance mode',
-	'MAINTENANCE_ENABLE_EXPLAIN'				=> '"Disable board" above must be set to Yes to activate Maintenance mode.',
-	'ACP_MAINTENANCE'							=> 'Maintenance mode',
-	'ACP_MAINTENANCE_SETTINGS'					=> 'Settings',
-	//Log
-	'LOG_MAINTENANCE_SAVED'						=> '<strong>Maintenance mode configuration updated</strong>',
+	'MAINTENANCE_FACEBOOK'			=> 'Facebook',
+	'MAINTENANCE_TWITTER'			=> 'Twitter',
+	'MAINTENANCE_RSS'				=> 'RSS',
+	'MAINTENANCE_YOUTUBE'			=> 'Youtube',
+	'MAINTENANCE_LINKEDIN'			=> 'Linkedin',
+	'MAINTENANCE_GITHUB'			=> 'Github',
+	'MAINTENANCE_EMAIL'				=> 'Email us',
 ]);

@@ -13,7 +13,6 @@ use phpbb\db\migration\migration;
 
 class maintenance_v101 extends migration
 {
-
 	static public function depends_on()
 	{
 		return [

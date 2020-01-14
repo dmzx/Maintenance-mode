@@ -1,0 +1,25 @@
+<div class="footer-social-icons">
+	<ul class="social-icons">
+		{% if S_MAINTENANCE_SOCIAL_FACEBOOK %}
+		<li><a href="{{ MAINTENANCE_FACEBOOK_URL }}" title="{{ lang('MAINTENANCE_FACEBOOK') }}" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+		{% endif %}
+		{% if S_MAINTENANCE_SOCIAL_TWITTER %}
+		<li><a href="{{ MAINTENANCE_TWITTER_URL }}" title="{{ lang('MAINTENANCE_TWITTER') }}" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+		{% endif %}
+		{% if S_MAINTENANCE_SOCIAL_RSS %}
+		<li><a href="{{ MAINTENANCE_RSS_URL }}" title="{{ lang('MAINTENANCE_RSS') }}" class="social-icon"> <i class="fa fa-rss"></i></a></li>
+		{% endif %}
+		{% if S_MAINTENANCE_SOCIAL_YOUTUBE %}
+		<li><a href="{{ MAINTENANCE_YOUTUBE_URL }}" title="{{ lang('MAINTENANCE_YOUTUBE') }}" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
+		{% endif %}
+		{% if S_MAINTENANCE_SOCIAL_LINKEDIN %}
+		<li><a href="{{ MAINTENANCE_LINKEDIN_URL }}" title="{{ lang('MAINTENANCE_LINKEDIN') }}" class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
+		{% endif %}
+		{% if S_MAINTENANCE_SOCIAL_GITHUB %}
+		<li><a href="{{ MAINTENANCE_GITHUB_URL }}" title="{{ lang('MAINTENANCE_GITHUB') }}" class="social-icon"> <i class="fa fa-github"></i></a></li>
+		{% endif %}
+		{% if S_MAINTENANCE_SOCIAL_EMAIL %}
+		<li><a href="mailto:{{ MAINTENANCE_EMAIL }}" title="{{ lang('MAINTENANCE_EMAIL') }}" class="social-icon"> <i class="fa fa-envelope-o"></i></a></li>
+		{% endif %}
+	</ul>
+</div>
